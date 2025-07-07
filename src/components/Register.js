@@ -9,7 +9,7 @@ function Register() {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/register', { username, password });
+      const response = await axios.post('https://tami-glossim.onrender.com/register', { username, password });
       alert(response.data.message);
       navigate('/');
     } catch (err) {
