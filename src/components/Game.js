@@ -12,7 +12,7 @@ const feedPet = async () => {
   console.log('Token que se está enviando:', token); // ✅ Verifica que el token no esté vacío
 
   try {
-    const response = await fetch('http://localhost:3000/code', {
+    const response = await fetch('https://tami-glossim.onrender.com/code', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
