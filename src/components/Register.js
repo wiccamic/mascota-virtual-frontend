@@ -36,7 +36,7 @@ function Register() {
   padding: 20,
   minHeight: '100vh',
   backgroundImage: isMobile
-    ? 'url(https://i.imgur.com/SbcGUBC.gif)' // fondo para celular
+    ? 'url(https://i.imgur.com/48JxuQ0.gif)' // fondo para celular
     : 'url(https://i.imgur.com/01ybR1x.gif)', // fondo para escritorio
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',

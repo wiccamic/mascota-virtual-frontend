@@ -38,7 +38,7 @@ const handleLogin = async () => {
   <div
       style={{
         backgroundImage: isMobile
-          ? 'url(https://i.imgur.com/vIuz34X.gif)' // 👉 Fondo para celular
+          ? 'url(https://i.imgur.com/48JxuQ0.gif)' // 👉 Fondo para celular
           : 'url(https://i.imgur.com/01ybR1x.gif)', // 👉 Fondo para escritorio
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -75,7 +75,8 @@ const handleLogin = async () => {
         margin: '10px',
         borderRadius: '5px',
         border: '1px solid #4B0082',
-        width: '200px'
+        width: '80%',
+        maxWidth: '300px'
       }}
     />
 

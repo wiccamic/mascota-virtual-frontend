@@ -6,7 +6,14 @@ function Game() {
   const [points, setPoints] = useState(parseInt(localStorage.getItem('points')) || 0);
   const [code, setCode] = useState('');
   const [petImage, setPetImage] = useState('https://i.imgur.com/iUrheeQ.gif'); // GIF normal
-  const isMobile = window.innerWidth <= 600; // Detectar si es un dispositivo móvil
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
 const feedPet = async () => {
   const token = localStorage.getItem('token');
