@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
 const handleLogin = async () => {
   try {
@@ -26,21 +36,21 @@ const handleLogin = async () => {
 
   return (
   <div
-  style={{
-    backgroundImage: window.innerWidth <= 768
-      ? 'url(https://i.imgur.com/vIuz34X.gif)' // fondo para móviles
-      : 'url(https://i.imgur.com/01ybR1x.gif)', // fondo para escritorio
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '20px'
-  }}
->
+      style={{
+        backgroundImage: isMobile
+          ? 'url(https://i.imgur.com/vIuz34X.gif)' // 👉 Fondo para celular
+          : 'url(https://i.imgur.com/01ybR1x.gif)', // 👉 Fondo para escritorio
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '20px'
+      }}
+    >
     <img src="https://i.imgur.com/BjB96EY.png" alt="Logo" style={{ width: '150px', marginBottom: '20px' }} />
     <h2 style={{ color: '#4B0082' }}>Iniciar Sesión</h2>
 
